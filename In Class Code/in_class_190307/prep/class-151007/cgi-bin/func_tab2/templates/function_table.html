@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="/style1.css"/>
+    </head>
+    <body>
+        <table class="grid">
+            <tr>
+                <th>x</th>
+                {% for func in function_info %}
+                    <th title="{{ func[1] }}">
+                        {{ func[0] }}
+                    </th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+                <tr>
+                    {% for item in row %}
+                        <td class="numeric">{{"%.3f"|format(item)}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>

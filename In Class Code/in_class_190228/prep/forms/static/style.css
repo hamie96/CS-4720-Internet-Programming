@@ -1,0 +1,26 @@
+
+
+img {
+    width: 40%;
+}
+
+
+html {
+    background-color: lightseagreen;
+}
+
+body {
+    background-color: lightblue;
+    width: 75%;
+    margin-left: 12.5%;
+}
+
+
+table.grid, table.grid th, table.grid td {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width: 3px;
+    padding: 5px;
+    /*text-align: right;*/
+}
+

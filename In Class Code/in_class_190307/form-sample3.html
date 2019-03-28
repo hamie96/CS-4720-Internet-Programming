@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Form Controls</title>
+ <link rel="Stylesheet" type="text/css" href="style1.css"/>
+</head>
+<body>
+ <h1>Form Controls&mdash;v2</h1>
+ <form method="post" action="http://localhost:8000/">
+    <h2>Text entry</h2>
+     <div class="tab-layout">
+
+         <div>
+             <span>file:</span>
+             <span><input type="file" name="file" /></span>
+         </div>
+         <div>
+             <span>text:</span>
+             <span><input type="text" name="text" /></span>
+         </div>
+
+         <div>
+             <span>password:</span>
+             <span><input type="password" name="password" /></span>
+         </div>
+
+     </div>
+
+
+     <div>
+         <h2>Checkboxes</h2>
+         <div class="tab-layout">
+             <div>
+                 <span>Able</span>
+                 <span><input type="checkbox" name="abox" value="letter-a" /></span>
+             </div>
+             <div>
+                 <span>Balanchine</span>
+                 <span><input type="checkbox" name="bbox" value="letter-b" /></span>
+             </div>
+             <div>
+                 <span>Bratislavia</span>
+                 <span><input type="checkbox" name="bbox" value="letter-b2" /></span>
+             </div>
+         </div>
+     </div>
+    <div>
+        <h2>Radio Buttons</h2>
+        <div class="tab-layout">
+            <div>
+                <span>Helvetica</span>
+                <span><input type="radio" value="helvetica" name="font" /></span>
+            </div>
+            <div>
+                <span>Lucida Bright</span>
+                <span><input type="radio" value="lucida bright" name="font" checked=""/></span>
+            </div>
+            <div>
+                <span>Palatino</span>
+                <span><input type="radio" value="palatino" name="font" /></span>
+            </div>
+
+        </div>
+    </div>
+    
+     <h2>Numeric</h2>
+        <div class="tab-layout">
+            <div>
+                <span>number</span>
+                <span><input type="number" name="number" /></span>
+            </div>
+            <div>
+                <span>number constrained</span>
+                <span><input type="number" name="number-constrained" min="25" max="50" value="35" /></span>
+            </div>
+            <div>
+                <span>range default</span>
+                <span><input type="range" name="range-default" /></span>
+            </div>
+            <div>
+                <span>range</span>
+                <span><input type="range" name="range" min="10.3" max="17.8" step=".3" /></span>
+            </div>
+    
+        </div>
+        <h2>Miscellaneous</h2>
+        <div class="tab-layout">
+            <div>
+                <span>color</span>
+                <span><input type="color" name="color" /></span>
+            </div>
+            <div>
+                <span>hidden</span>
+                <span><input type="hidden" name="hidden" value="a secret value" /></span>
+            </div>
+            <div>
+                <span>image button</span>
+                <span><input type="image" name="image" src="Stickmen003B.png" /></span>
+            </div>
+    
+        </div>
+        
+     <div>
+         <h2>Text area</h2>
+         <textarea name="para" > </textarea>
+     </div>
+
+     <div>
+         <h2>List</h2>
+
+         <p>Dropdown</p>
+         <select name="alpha">
+             <option value="1">apple</option>
+             <option value="2">banana</option>
+             <option value="3">carrot</option>
+             <option value="4">desk</option>
+             <option value="5">eland</option>
+         </select>
+
+         <p>Scrollable</p>
+         <select name="alpha2" size="3">
+             <option>apple</option>
+             <option>banana</option>
+             <option>carrot</option>
+             <option>desk</option>
+             <option>eland</option>
+         </select>
+
+
+         <p>Multiple selections allowed</p>
+         <select name="alpha3" size="5" multiple>
+             <option>apple</option>
+             <option>banana</option>
+             <option>carrot</option>
+             <option>desk</option>
+             <option>eland</option>
+         </select>
+
+
+
+     </div>
+     
+      
+         <div style="text-align: center;">
+             <input type="submit" value="Calculate" />   
+             <input type="reset" value="Reset"/>
+             <input type="button" value="Button" />             
+         </div>
+ </form>
+
+
+http://localhost:8000/?file=5Cubes2.png&text=some+text&password=password&abox=letter-a&bbox=letter-b&bbox=letter-b2&font=helvetica&number=33333&number-constrained=35&range-default=39&range=14.2&color=%23800040&hidden=a+secret+value&para=+reewregfgdfgwefwe%0D%0Aaadsafadfdsdfas&alpha=apple&alpha2=banana&alpha3=carrot&alpha3=desk
+
+http://localhost:8000/?file=5Cubes2.png&text=some+text%2Bother&password=&abox=letter-a&bbox=letter-b&bbox=letter-b2&font=helvetica&number=33333&number-constrained=35&range-default=39&range=14.2&color=%23800040&hidden=a+secret+value&para=+reewregfgdfgwefwe%0D%0Aaadsafadfdsdfas&alpha=apple&alpha2=banana&alpha3=carrot&alpha3=desk
+
+http://localhost:8000/?file=5Cubes2.png&text=some+text%2Bother&password=&abox=letter-a&bbox=letter-b&bbox=letter-b2&font=helvetica&number=33333&number-constrained=35&range-default=39&range=14.2&color=%23800040&hidden=a+secret+value&para=+reewregfgdfgwefwe%0D%0Aaadsafadfdsdfas&alpha=1&alpha2=banana&alpha3=carrot&alpha3=desk
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

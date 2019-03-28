@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{info[1]}}</title>
+        <link rel="stylesheet" href="/static/style1.css"/>
+
+</head>
+<body>
+
+    <h1>{{info[1]}}</h1>
+    <h2>{{info[2]}}</h2>
+
+    <!--
+    "select t.name, t.composer, t.milliseconds, t.bytes, t.unitprice, t.TrackId, " \
+          "g.Name, m.Name "
+    -->
+
+    <form action="/track-info">
+        <table class="grid">
+            <tr>
+                <th>Info</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Buy</th>
+            </tr>
+            % trnum = 1
+            % for tr in tracks:
+                <tr>
+                    <td>
+                        <button value="{{tr[2]}}" name="track-id">{{trnum}}</button>
+                    </td>
+                    <td>{{tr[0]}}</td>
+                    <!--<td>
+                        % if tr[1]:
+                            {{tr[1]}}
+                        % else:
+                            ------
+                        % end
+                    </td>-->
+                    <td>{{tr[1]}}</td>
+                    <td>
+                        <input type="checkbox" value="{{tr[2]}}" name="cart-selected" />
+                    </td>
+                </tr>
+            % trnum += 1
+            % end
+            <tr>
+                <td colspan="3"></td>
+                <td><button formaction="/add_to_cart">Add to Cart</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+

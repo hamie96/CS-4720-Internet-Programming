@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Table</title>
+        <link rel="Stylesheet" type="text/css" href="style1.css"/>
+        <link rel="Stylesheet" type="text/css" href="/static/style1.css"/>
+    </head>
+    <body>
+        <h1>Function Table Tool</h1>
+        
+        <p>
+            This tool will display chosen function values
+            over a specified range.
+        </p>
+        
+        <form method="get" action="http://localhost:8001/generate">
+            <h2>Range</h2>
+            <p>
+                Choose the range of values to display
+                and the number of rows in the table.
+            </p>
+            <div class="data-grid">
+                <div>
+                    <span>Start</span>
+                    <span>
+                        <input type="number" name="start" value="1" min="0"/>
+                    </span>
+                </div>
+                <div>
+                    <span>End</span>
+                    <span>
+                        <input type="number" name="end" value="10"/>
+                    </span>
+                </div>
+                <div>
+                    <span>Number of Rows</span>
+                    <span>
+                        <input type="number" name="numrows" value="11" min='2'/>
+                    </span>
+                </div>
+            </div>
+        
+            <h2>Functions</h2>
+            <p>
+                Choose the functions to display.
+            </p>
+            
+            <div class=" data-grid">
+                <div>
+                    <span>Square</span>
+                    <span><input type="checkbox" name="function" value="square"/></span>
+                </div>
+                <div>
+                    <span>Cube</span>
+                    <span><input type="checkbox" name="function"  value="cube"/></span>
+                </div>
+                <div>
+                    <span>Natural log</span>
+                    <span><input type="checkbox" name="function"  value="ln"/></span>
+                </div>
+                <div>
+                    <span>Binary log</span>
+                    <span><input type="checkbox" name="function"  value="log2"/></span>
+                </div>
+                <div>
+                    <span>Arctangent</span>
+                    <span><input type="checkbox" name="function"  value="atan"/></span>
+                </div>
+                <div>
+                    <span>Square Root</span>
+                    <span><input type="checkbox" name="function"  value="sqrt"/></span>
+                </div>
+            </div>
+            
+            <p>
+            <input type="submit" value="Create Table" />
+            </p>
+        </form>
+
+
+
+    </body>
+</html>
