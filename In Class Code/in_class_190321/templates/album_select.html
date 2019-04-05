@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Album</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<h1>Select an Album</h1>
+
+    <form method="get" action="/album_info">
+        <select name="album-select" size="10">
+
+            % for album in album_list:
+                <!--[[156, '...And Justice For All'],-->
+                <option value="{{album[0]}}">{{album[1]}}</option>
+            % end
+
+        </select>
+        <p>
+        <input type="submit" value="Get Album Information"/>
+        </p>
+    </form>
+</body>
+</html>

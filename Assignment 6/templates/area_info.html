@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Information</title>
+     <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+<h1>{{album_info[1]}}</h1>
+<h2>{{ album_info[2] }}</h2>
+
+
+
+<h2>Tracks</h2>
+
+<form action="/track_info" method="get">
+
+    <input type="hidden" name="album_name" value="{{album_info[1]}}"/>
+    <table class="grid">
+        <tr><th>Track</th><th>Title</th><th>Price</th><th>Select</th></tr>
+        % trnum = 1
+        % for tr in tracks:
+            <tr>
+                <td><button value="{{ tr[2] }}" name="track_selected">
+                    {{ trnum }}
+                </button></td>
+                % trnum += 1
+                <td>{{ tr[0] }}</td>
+                <td>{{ tr[1] }}</td>
+                <td><input type="checkbox" name="add_to_cart" value="{{ tr[2] }}"/> </td>
+            </tr>
+
+        % end
+        <tr>
+            <td colspan="3"></td>
+            <td><button formaction="add_to_cart" formmethod="get">
+                Add to Cart
+            </button></td>
+        </tr>
+    </table>
+    </form>
+
+
+</body>
+</html>

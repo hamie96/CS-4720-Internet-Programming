@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Area</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<h1>Select an Area</h1>
+
+    <form method="get" action="/area_info">
+        <select name="area-select" size="10">
+
+            % for area in area_list:
+                <!--[[156, '...And Justice For All'],-->
+                <option value="{{area[0]}}">{{area[1]}}</option>
+            % end
+
+        </select>
+        <p>
+        <input type="submit" value="Get Area Information"/>
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose an Album</title>
+    <link rel="stylesheet" href="/static/style1.css"/>
+</head>
+<body>
+
+    <form action="/album">
+        <select name="album">
+            % for (id, name) in albums:
+            <option value="{{id}}">{{name}}</option>
+            % end
+        </select>
+        <br/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
