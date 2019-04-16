@@ -20,14 +20,21 @@ def area_list():
 
 @route('/area_info')
 def area_info():
-    area_id = request.query.getall('area-select')
-    if len(area_id) != 1:
-        return error(["You must construct additional pylons",
-                    "You must provide: {}".format(area_id)])
+    num = request.query.getall('area-select')
+    r = requests.get("http://localhost:21212/measures/area")
+    areas = loads(r.text)
+    
+    area_id = areas[0]
+    name = area_id[1]
+    id_num = area_id[0]
+
+    if id_num != 1:
+      return error(["You must construct additional pylons",
+                    "You must provide: {}".format(areas)])
     else:
         ## name = area_id[1]
         template = SimpleTemplate(name="area_infos.html", lookup=["templates"])
-        page =  template.render(area_id=area_id)
+        page =  template.render(str(id_num),name)
         return page
 
 
