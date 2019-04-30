@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html >
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Quadratic Equation Solver</title>
+        <link type="text/css" rel="stylesheet" href="style1.css" />
+        
+        <script src="quadratic.js"></script>
+        
+    </head>
+    <body>
+        <h1>Solve a Quadratic Equation</h1>
+
+
+
+        <div class="tab-layout">
+            <div>
+                <span>Degree 2 coefficient:</span>
+                <span><input type="text" id="coeff2" /></span>
+            </div>
+            <div>
+                <span>Degree 1 coefficient:</span>
+                <span><input type="text" id="coeff1" /></span>
+            </div>
+            <div>
+                <span>Degree 0 coefficient:</span>
+                <span><input type="text" id="coeff0" /></span>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button id="computeButton" >Compute</button>
+        </div>
+
+        <div class="tab-layout">
+            <div>
+                <span>First root:</span>
+                <span id="root1"></span>
+            </div>
+            <div>
+                <span>Second root:</span>
+                <span id="root2"></span>
+            </div>
+        </div>
+        <p id="error-message" class="error"></p>
+
+        <!--<script>setup()</script>-->
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 2302, Spring 2013 - Android Resources</title>
+    
+    <meta name="generator" content="nanoc 3.3.6">
+    
+  </head>
+  <body>
+    <div id="main">
+      <!--<h1>Course2 layout</h1>-->
+      <h1 id="android-resources">Android Resources</h1>
+
+<p>This is the text for the Resources chapter in 
+<a href="../../GUIAppsUsingAndroid.pdf"><em>GUI Apps Using Android</em></a>, currently chapter 4.
+It is more convenient to work in HTML at the moment than
+LaTeX, used to create the PDF version.</p>
+
+<p>From the Android guide to App Resources:</p>
+
+<blockquote>
+  <p>Resources are the additional files and static content that
+your code uses, such as bitmaps, layout definitions, user interface strings, 
+animation instructions, and more.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+</blockquote>
+
+<p>In other words, thereâ€™s a lot of important components to an Android app,
+or any application for that matter, than just the code.
+Media, such as images, is just one example.
+A less obvious resource is strings. 
+By storing strings as a resource, rather than building them directly into a program
+or user interface, we can make use of the Android facilities to
+internationalize an application by providing labels and messages
+in a language appropriate to the locale.</p>
+
+<p>In this part, we wil first look at the types of resources that can be used
+in an Android program.
+We will only use a few of these types for now.
+Then, we will examine how these resources can be provided in multiple versions
+to match the environment.
+We mentioned locale above, but we can also take into account screen size, as in
+phone vs. tablet.
+At the end of this part, we will study the raw form of resources files.
+Other than bitmap files, resource files use XML to specify the structure of
+the information contained in them.</p>
+
+<h2 id="types-of-resource-values">Types of Resource Values</h2>
+
+<p><a href="../images/ProjectShowinResDirectory.png">
+<img src="../images/ProjectShowinResDirectory.png" alt="Package view showing `res` directory" style="float:right" width="25%" />
+</a></p>
+
+<p>Resources are stored in subdirectories of the <code>res</code> directory.
+Note that no resources should be stored directly in <code>res</code>, only in subdirectories.
+The Android guides provide a table 
+<a href="http://developer.android.com/guide/topics/resources/providing-resources.html#table1">Resource directories supported inside project res/ directory</a>
+that shows how different types of resources are grouped.
+If you examine the <code>res</code> folder in an existing Android project,
+such as the one illustrated to the right, you will see some of the 
+directories listed in the table.
+You will also note some, like <code>drawable-hdpi</code> that are close to the directory names.
+Those directories use <em>modifiers</em> described in the <a href="#resource-folder-modifiers">section below</a>.</p>
+
+<p>We will be mainly concerned with three groups of resources:</p>
+
+<dl id="folders">
+  <dt>drawable</dt>
+  <dd>As the name indicates, directories named <code>drawable</code> contain images.
+  These might be bitmap images, as in the example at left.
+  They could, however, be described in a text file using an XML vocabulary.</dd>
+  <dt>layout</dt>
+  <dd>Directory <code>layout</code> contains files that describe the look of the screen presented
+  by an application. 
+  There may be several screens for different modes of operation.
+  Our first examples will use one layout for one screen.
+  Later examples will demonstrate how to design and navigate multiple screens.
+  Event though there are no modified version of <code>layout</code>, there could be different
+  versions that depend, say, on the screen size.</dd>
+  <dt>values</dt>
+  <dd>Directories named <code>values</code> contain files that â€œcontain simple values, such as strings, integers, and colorsâ€�.<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>
+  We can define strings here that will used to label parts of the user interface.
+  We can also define the colors we use in a user interface.
+  Centralizing the definitions in this way make it easier to change later.</dd>
+</dl>
+
+<p>The resources defined in the <code>res</code> subdirectories can be accessed from a layout.
+However, they can also be accessed from Java code.<br />
+This means resources can be used to customize all parts of an application.</p>
+
+<p>Another advantage of resources, though not one that we will need, is that resources can 
+be modified without recompiling the application code.
+This means that an application could be unpacked and the resources modified and then
+repacked.
+This could be used to change the operation of an application,
+though clearly this would not be appropriate for regular users.</p>
+
+<h2 id="resource-folder-modifiers">Resource Folder Modifiers</h2>
+
+<p>The Android system allows a developer to specify different versions of resources depending on the
+configuration of the platform running an application.<br />
+The Android guide section
+<a href="http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources">Alternative Resources</a>
+describes in detail what options are available and how they should be used.
+The table of <a href="http://developer.android.com/guide/topics/resources/providing-resources.html#table2">Configuration qualifier names</a>
+lists all the currently available modifiers.
+The order the modifiers appear in the table is important: 
+a directory name may be modified by multiple qualifiers, but they must appear in the
+order in which they appear in the table.</p>
+
+<p>Files inside the various subdirectories may have arbitrary names, with an .xml extension.</p>
+
+<p>The example folders shown above use the screen density modifiers for drawable.
+The example also shows version modifiers for values.
+It is recommended that, if you have some modified directory names, that you should
+also have an unmodified directory containing <em>default versions</em> of all resources.
+This prevents errors when some unanticipated combination of configurations on
+a device conflict with all the qualified resources.</p>
+
+<p>An unqualified resource folder is a default in that when no modifier fits or no resource name
+matches otherwise, a resource in the default directory will be used.</p>
+
+<h2 id="xml">XML</h2>
+
+<p>It will be helpful to understand a little of the format used in the resource files, at least 
+the ones in text format.
+These all use a language scheme called <em>XML</em>.<br />
+This looks very much like HTML, if you are familiar with that important web language.
+Here is a short example from the <code>HelloName</code> application:</p>
+
+<pre><code>&lt;resources&gt;
+    &lt;string name="app_name"&gt;HelloName&lt;/string&gt;
+    &lt;string name="hello_world"&gt;Hello world!&lt;/string&gt;
+    &lt;string name="menu_settings"&gt;Settings&lt;/string&gt;
+    &lt;string name="title_activity_main"&gt;Hello There&lt;/string&gt;
+    &lt;string name="title"&gt;Enter Your Name!&lt;/string&gt;
+    &lt;string name="buttonLabel"&gt;Click This Button&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>First, XML is built around <em>tags</em>.<br />
+These are the pieces of text surrounded by â€˜&lt;â€™ and â€˜&gt;â€™.
+A <em>start tag</em>  begins with a word, after the opening â€˜&lt;â€™.
+An <em>end tag</em> begins with â€˜/â€™ and then a word after the opening â€˜&lt;â€™.
+In both kinds of tags, the word is called the <em>tag name</em>.
+Other than optional spaces, an end tag contains nothing else before the closing
+â€˜&gt;â€™.</p>
+
+<p>Note that each start tag is matched with an end tag having the same name.
+The part of the document from one start tag to its matching end tag is called
+an <em>element</em>.
+As can be seen above, an element may contain plain text between the two tags, as is
+the case with all the â€˜stringâ€™ tags.
+But, other elements may be contained between a start and end tag, such as with the
+â€˜resourcesâ€™ tag.</p>
+
+<p>Start tags can have extra content before the final â€˜&gt;â€™.
+This content is called <em>attributes</em>.
+Each attribute has a key, the word â€˜nameâ€™ in all the cases above, followed by 
+an â€˜=â€™, followed by a quoted string.
+The quoted string gives the <em>value of the attribute</em>.</p>
+
+<p>There are several rules for the arrangements of tags in all XML documents:
+* As mentioned above, each start tag must have a matching end tag.
+* If a start tag appears inside an element, then its matching end tag must also be
+	inside the element.
+* There is one element that contains all the other elements in the document.
+	This is called the <em>root element</em></p>
+
+<p>There is one exception to the first rule, the so-called <em>empty tags</em>.
+This is used for tags where there will never be any other content between the
+start and the end tag.
+For example, the &lt;br&gt; tag in HTML indicates a line break.
+It would make no sense to put anything between &lt;br&gt; and &lt;/br&gt;.
+So, XMl allows a shortcut: &lt;br/&gt;.
+This empty tag takes the place of the combination of start and end tags.</p>
+
+<p>Beyond the <em>syntax</em> of XML files, there is the <em>semantics</em>, the meaning.
+It is reasonably easy to see in the resource file shown above that several
+string resources are being defined.
+The first one is a string resource named <code>app_name</code> which has the value <code>HelloName</code>.</p>
+
+<p>There is one more refinement that should be mentioned.
+Entering the tag &lt;br&gt; into the text of an HTML document, like this one,
+would cause a line break.
+So what had to be done to make the appear explicitly? 
+The &lt; was replaced in each case by the <em>character entity</em>  &amp;lt;
+in the original document. 
+If you view the source of this web page, you can see this. 
+There are five universal character entities.
+Some systems, such as HTML browsers may define more.
+Wikipedia lists the <a href="http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references#Predefined_entities_in_XML">basic five</a>
+as well as the standard <a href="http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references#Character_entity_references_in_HTML">HTML character entities</a>.</p>
+
+
+
+<h3 id="notes">Notes</h3>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://developer.android.com/guide/topics/resources/index.html">http://developer.android.com/guide/topics/resources/index.html</a><a href="#fnref:1" rel="reference">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://developer.android.com/guide/topics/resources/providing-resources.html#table1">http://developer.android.com/guide/topics/resources/providing-resources.html#table1</a><a href="#fnref:2" rel="reference">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+      
+    </div>
+    
+  </body>
+</html>
