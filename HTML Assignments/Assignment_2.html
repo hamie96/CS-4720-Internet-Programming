@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    
+    
+        <title>4720sp19—Database in Python</title>
+    
+
+    
+
+
+    <link href="Assignment_2_files/style.css" rel="stylesheet" type="text/css">
+
+    <!--
+    Light themes
+
+    <link rel="stylesheet" href="/style/highlight-js/styles/github.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/magula.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/qtcreator_light.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/routeros.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/tomorrow.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/vs.css">
+
+
+    Dark themes
+    ++ <link rel="stylesheet" href="/style/highlight-js/styles/obsidian.css">
+    ++ <link rel="stylesheet" href="/style/highlight-js/styles/tomorrow-night-eighties.css">
+    ++ <link rel="stylesheet" href="/style/highlight-js/styles/tomorrow-night.css">
+    ++ <link rel="stylesheet" href="/style/highlight-js/styles/zenburn.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/hybrid.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/gruvbox-dark.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="/style/highlight-js/styles/codepen-embed.css">
+
+    -->
+
+     <link rel="stylesheet" href="Assignment_2_files/magula.css">
+
+
+
+    <!--
+    <link rel="icon" type="image/png"  href="/1302-icon.png" />
+    -->
+
+    <script type="text/javascript" src="Assignment_2_files/jquery-3.js">
+    </script>
+
+    <script src="Assignment_2_files/jquery.js"></script>
+
+    <script src="Assignment_2_files/highlight.js"></script>
+    <script>
+        // hljs.initHighlightingOnLoad();
+        $(document).ready(function() {
+            $('pre').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+//        MathJax.Hub.Config({
+//          tex2jax: {inlineMath: [['\\(','\\)']]}
+//        });
+    </script>
+
+    <script type="text/javascript" async="" src="Assignment_2_files/MathJax.js">
+    </script>
+
+
+   <script type="text/javascript" async="" src="Assignment_2_files/MathJax_002.js">
+    </script>
+
+
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body><div id="MathJax_Message" style="display: none;"></div>
+    
+        <div id="main">
+    
+    <h1 id="database-in-python">Database in Python</h1>
+
+<h2 id="objectives">Objectives</h2>
+
+<p>The first objective is to use Python database access methods to produce reports.</p>
+
+<p>The second objective is to set up code that will support web services you will develop in later
+assignments.
+In light of this objective, please pay careful attention to the organization specified for the code.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>This assignment will use the measurements example database as a subject.
+Several of the later assignments will be built on some components you create for this assignment.</p>
+
+<p>The measurements example is described in the
+<a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/examples/measurements-example">Measurements Example page</a></p>
+
+<p>Use the  file
+<a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/extra/examples/measurements/measures.sqlite"><code>measures.sqlite</code></a>
+for the database.</p>
+
+<p>You will create two modules that provide data from the database and then create a script
+that uses those modules.</p>
+
+<p>It will be easiest to put all your files in the root directory of the project.
+Make sure you reference the database file by a <em>relative</em> reference.
+If the path to your file mentions directories on your system (such as your user directory, for example) then it
+will not work on the testing system.</p>
+
+<h2 id="detailed-requirements">Detailed Requirements</h2>
+
+<!--
+The code should be organized in a project with the source code contained in the directory
+`src` which is an immediate child of the project directory.
+This is the standard setup prepared by IDE's such as Eclipse/Aptana and PyCharm.
+
+Put the all the modules and scripts inside a Python package named `birt_db`.
+This package should be a top level source directory.
+-->
+
+<h3 id="db_access">Database Access</h3>
+
+<p>All database access will be through the methods described in this section.
+These are the only methods in the application that should connect to the database and issue SQL commands.
+Other parts of the application will call these methods to get data as needed.
+These methods should be in a module named <code>db_access</code>, that is, the file name for the module will be <code>db_access.py</code></p>
+
+<pre class="hl hljs python"><span class="hl kwa"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> </span><span class="hl kwd"><span class="hljs-function"><span class="hljs-title">get_all_areas</span></span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">()</span>:</span></span>
+    <span class="hl str"><span class="hljs-string">"""</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Returns a list of tuples representing all the rows in the</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    area table.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    """</span></span>
+
+<span class="hl kwa"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> </span><span class="hl kwd"><span class="hljs-function"><span class="hljs-title">get_locations_for_area</span></span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">(</span></span></span><span class="hljs-function"><span class="hljs-params">area_id</span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">)</span>:</span></span>
+    <span class="hl str"><span class="hljs-string">"""</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Return a list of tuples giving the locations for the given area.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    """</span></span>
+
+<span class="hl kwa"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> </span><span class="hl kwd"><span class="hljs-function"><span class="hljs-title">get_measurements_for_location</span></span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">(</span></span></span><span class="hljs-function"><span class="hljs-params">location_id</span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">)</span>:</span></span>
+    <span class="hl str"><span class="hljs-string">"""</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Return a list of tuples giving the measurement rows for the given location.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    """</span></span>
+
+
+<span class="hl kwa"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> </span><span class="hl kwd"><span class="hljs-function"><span class="hljs-title">get_categories_for_area</span></span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">(</span></span></span><span class="hljs-function"><span class="hljs-params">area_id</span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">)</span>:</span></span>
+    <span class="hl str"><span class="hljs-string">"""</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Return a list of rows from the category table that all contain the given area.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    """</span></span>
+</pre>
+
+<p>You may find it convenient to define other functions inside the module, but they should not be used outside
+the module.</p>
+
+<p>Assume that a database file named <code>measures.sqlite</code> is available in the current directory.
+<!--Reference that file with a relative path, the layout of the directories on the testing system
+is not likely to be like yours.--></p>
+
+<h3 id="utility-functions">Utility Functions</h3>
+
+<p>Provide the following functions to support the application you are developing.
+These functions should use the database access functions described in the previous section to get data for the application.
+These functions do not access the database directly.
+Put these functions in a module named <code>db_utility</code>.</p>
+
+<pre class="hl hljs python"><span class="hl kwa"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> </span><span class="hl kwd"><span class="hljs-function"><span class="hljs-title">get_average_measurements_for_area</span></span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">(</span></span></span><span class="hljs-function"><span class="hljs-params">area_id</span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">)</span>:</span></span>
+    <span class="hl str"><span class="hljs-string">"""</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Returns the average value of all measurements for all locations in the given area.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Returns None if there are no measurements.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    """</span></span>
+ 
+<span class="hl kwa"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> </span><span class="hl kwd"><span class="hljs-function"><span class="hljs-title">number_of_locations_by_area</span></span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">(</span></span></span><span class="hljs-function"><span class="hljs-params">area_id</span></span><span class="hl opt"><span class="hljs-function"><span class="hljs-params">)</span>:</span></span>
+    <span class="hl str"><span class="hljs-string">"""</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    Returns the number of locations for the given area.</span></span><span class="hljs-string">
+</span><span class="hl str"><span class="hljs-string">    """</span></span>
+</pre>
+
+<h3 id="scripts">Scripts</h3>
+
+<p>Write a script named <code>report.py</code> that will display a table of data with each row dedicated to an area.
+The columns should line up.
+There should be headers on the columns.
+The data in each column is:</p>
+
+<ol>
+  <li>Area id</li>
+  <li>Area name</li>
+  <li>Number of locations in the area</li>
+  <li>Average measurements for all measurements for all locations in the area
+    <ol>
+      <li>If there are no measurements, display the string “——-“</li>
+    </ol>
+  </li>
+  <li>List of categories to which the area belongs
+    <ol>
+      <li>If the area belongs to no categories, leave the entry blank.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Here is what the output would might like:</p>
+
+<pre class="hljs css">   <span class="hljs-selector-tag">ID</span> <span class="hljs-selector-tag">Name</span>                    <span class="hljs-selector-tag">Num</span> <span class="hljs-selector-tag">Loc</span>     <span class="hljs-selector-tag">Avg</span> <span class="hljs-selector-tag">Value</span>    <span class="hljs-selector-tag">Categories</span>
+    1 <span class="hljs-selector-tag">Grand</span> <span class="hljs-selector-tag">Canyon</span>                  3         46<span class="hljs-selector-class">.27</span>    <span class="hljs-selector-tag">West</span>
+    2 <span class="hljs-selector-tag">Boca</span> <span class="hljs-selector-tag">Raton</span>                    2         53<span class="hljs-selector-class">.42</span>    <span class="hljs-selector-tag">East</span>
+    3 <span class="hljs-selector-tag">Kennesaw</span>                      4         61<span class="hljs-selector-class">.78</span>    <span class="hljs-selector-tag">East</span>
+    4 <span class="hljs-selector-tag">Mount</span> <span class="hljs-selector-tag">Hood</span>                    3         73<span class="hljs-selector-class">.69</span>    <span class="hljs-selector-tag">Volcanos</span>, <span class="hljs-selector-tag">West</span>
+    5 <span class="hljs-selector-tag">Mount</span> <span class="hljs-selector-tag">Rainer</span>                  4         84<span class="hljs-selector-class">.41</span>    <span class="hljs-selector-tag">Volcanos</span>, <span class="hljs-selector-tag">West</span>
+    6 <span class="hljs-selector-tag">Saint</span> <span class="hljs-selector-tag">Olaf</span>                    2         93<span class="hljs-selector-class">.22</span>    
+    7 <span class="hljs-selector-tag">Mount</span> <span class="hljs-selector-tag">St</span>. <span class="hljs-selector-tag">Helens</span>              0    <span class="hljs-selector-tag">----------</span>    
+</pre>
+
+<h3 id="unit-test">Unit test</h3>
+
+<p>You can use the following  unit test to test the two modules:
+<a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/assignments/supplement/test2.py"><code>test2.py</code></a>.
+A similar test will be used as part of the grading process.</p>
+
+<h2 id="evaluation-for-grade">Evaluation for Grade</h2>
+
+<p>Your two module files and the report script will be copied into a project that is set up with the database file
+and a unit test.
+Your report script will be run from there and the output checked.
+Then the unit test will be run.</p>
+
+<ul>
+  <li>Columns should line up in the report</li>
+  <li>The average value column should show the correct number of decimal places</li>
+  <li>An area with no measurements should display the proper entry</li>
+  <li>There should be no extraneous characters</li>
+</ul>
+
+<p>Your code will be examined.</p>
+
+<ul>
+  <li>One important point that will be checked is that the module <code>db_utility</code> does not access the database 
+  directly but, rather, use the functions in <code>db_access</code>.</li>
+  <li>Also, report script should not access the database directly, but, rather, use the functions in the two
+  modules.</li>
+  <li>Formatting of the average values to two decimal places should use the string formatting features in the Python
+  library.
+  In particular, do not use mathematical rounding operations.</li>
+</ul>
+
+<h2 id="submitting-the-assignment">Submitting the Assignment</h2>
+
+<p>Zip up your project and submit it through the appropriate D2L folder.</p>
+
+<!--
+## Due on xxxx
+-->
+
+    </div>
+
+    <div id="sidebar">
+        <h3>Links</h3>
+
+        <ul>
+        <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/index.html">Home</a></li>
+        <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/timetable">Timetable</a></li>
+        <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/syll-sp19-4720.pdf">Syllabus</a></li>
+        <li>
+<a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/notes">Class Notes</a>
+            <!--<a href="/notes2">Old Notes</a>-->
+            </li>
+        <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/nanoc/output/assignments/">Assignments</a></li>
+       <!-- <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4722fa18/extra/projects/">Projects</a></li>-->
+        <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/extra/recordings/">Recordings</a></li>
+        <li><a href="http://ksuweb.kennesaw.edu/~bsetzer/4720sp19/extra/in_class/">In-class Projects</a></li>
+        <li><a href="https://kennesaw.view.usg.edu/d2l/login">D2L Brightspace</a></li>
+        </ul>
+
+
+        <!--
+        <a href="/index.html">Home</a><br/>
+        <a href="/timetable">Timetable</a><br/>
+        <a href="/syllabus">Syllabus</a><br/>
+        <a href="/notes">Class Notes</a><br/>
+        <a href="/notes2">Old Notes Page</a><br/>
+        <a href="/assignments">Assignments</a><br/>
+        <!- -<a href="http://ksuweb.kennesaw.edu/~bsetzer/4722sp18/extra/slides/">Slides</a><br/>- ->
+        <!- -<a href="/labs">Labs</a><br/>- ->
+        <a href="https://kennesaw.view.usg.edu/d2l/login">D2L Brightspace</a>
+        -->
+    </div>
+
+
+
+<script>
+    $("#toc").toc({content: "div#main", headings: "h2,h3,h4"});
+</script>
+
+
+
+
+</body></html>

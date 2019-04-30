@@ -1,0 +1,396 @@
+/* @item[:title]  */
+/* ColourLoves January */
+/* ColourLoves Desert and Sky * /
+$colorA: #4581cf;
+$colorB: #B7E2FF;
+$colorC: #fff8b2;
+$colorD: #b25c1f;
+$colorE: #572a0a;
+
+$textBackground: lighten($colorB, 10%);
+$textBackground: $colorC;
+$pageBackground: $colorD;
+$borderColor: $colorE;
+$headerText: $colorA;
+$dlText: $headerText;
+//$dlSmallerText: $dlText;
+$garish: $colorA; //darken($colorC,40%);
+$pattern: url("desertandskiespattern7.png");
+$sidebar-text-align: left;
+
+/**/
+/* COlourLovers  Terra? palette * /
+$text: #033649;
+$headerText: #036564;
+$textBackground: #e8ddcb;
+$pageBackground: #cdb380;
+/**/
+/* http://colorschemedesigner.com/
+   based on complements of #FF9900 
+* /
+$text: #583500;
+$headerText: #82befb;
+$textBackground: #fff1dc;
+$pageBackground: #0d58a6;
+$garish: #ff9900;  // indian red
+$altText: #006e4a;
+$lightBackground: #eef;
+$todoBackground: $text;
+$todoColor: $textBackground;
+$ghostBackground: lighten($textBackground,30%);
+$ghostColor: lighten($text, 30%);
+/**/
+/* ColorLovers natural palette * /
+$text: #414960;
+$headerText: #af9257;
+$textBackground: #eee2ae;
+$pageBackground: #5b7361;
+//$pageBackground: #414960;
+$garish: #cd5c5c;  // indian red
+$pattern: false;
+
+/**/
+/*
+COLOURlovers.com - The Sandy Beach
+Pale Sky
+RGB: 138, 206, 255
+Hex: 8ACEFF Soft Blue 442
+RGB: 8, 59, 94
+Hex: 083B5E Light Beige
+RGB: 250, 241, 227
+Hex: FAF1E3 WOOD
+RGB: 94, 59, 25
+Hex: 5E3B19 Toast Crumbs
+RGB: 48, 30, 12
+Hex: 301E0C
+* /
+$text: #301E0C;
+$headerText: #083B5E;
+$textBackground: #FAF1E3;
+$pageBackground: #8ACEFF;
+//$pageBackground: #414960;
+$garish: #cd5c5c;  // indian red
+$garish: #8aceff;
+$pattern: false;
+$borderColor: $text;
+$dlText: lighten(#5E3B19, 20%);
+$notes_subheaders: $dlText;
+$pattern: url(sandy-beach-pattern2.png);
+/**/
+/* ColorLovers earth's warmth * /
+
+$text: #592e2e;
+$headerText: #853534;
+$textBackground: #FFF4AB;
+//$textBackground: lighten(#dec26d,10%);
+$pageBackground: #B06142;
+$garish: #B06142; 
+$altText: #853534;
+$pattern: url("EarthsWarmthMosaic4.png");
+/**/
+/*$todoBackground: $text;
+$todoColor: $textBackground;
+$ghostBackground: lighten($textBackground,30%);
+$ghostColor: lighten($text, 30%);
+$codeEmphasizeBackground: lighten($textBackground, 10%);
+$borderColor: #5E3B19;
+*/
+/*  default for all */
+/**/
+html {
+  background-color: #47DAE9;
+  font-family: "Tahoma", sans-serif;
+  background-image: url("januarypattern02.png");
+  background-attachment: fixed; }
+
+table.grid, table.grid th, table.grid td {
+  border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;
+  /*text-align: right;*/ }
+
+#sidebar {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  width: 200px;
+  padding: 20px 20px 20px 5px;
+  /* t r b l */
+  text-align: left;
+  background-color: #EFF6D8;
+  color: #0E0524;
+  border-style: solid;
+  border-color: #4768E9;
+  border-width: 5px; }
+
+#main, #content {
+  position: absolute;
+  top: 40px;
+  left: 280px;
+  /*width: 500px;*/
+  width: 60%;
+  background-color: #EFF6D8;
+  color: #0E0524;
+  padding: 20px 5px 20px 20px;
+  /* t r b l */
+  border-style: solid;
+  border-color: #4768E9;
+  border-width: 5px; }
+
+.main-regular {
+  width: 60%; }
+
+.main-wider {
+  width: 70%; }
+
+h1, h2, h3, h4, h5 {
+  color: #4218aa; }
+
+dt {
+  color: #4218aa;
+  font-size: x-large;
+  margin-top: 1em; }
+
+/* not quite outline style, so a little less formal */
+ol.simple > li {
+  list-style-type: decimal; }
+
+ol.simple > li > ol > li {
+  list-style-type: upper-alpha; }
+
+ol.simple > li > ol > li > ol > li {
+  list-style-type: disc; }
+
+ol.simple > li > ol > li > ol > li > ol > li {
+  list-style-type: circle; }
+
+/* not quite outline style, so a little less formal */
+ol.simpleg > li {
+  list-style-type: georgian; }
+
+ol.simpleg > li > ol > li {
+  list-style-type: upper-alpha; }
+
+ol.simpleg > li > ol > li > ol > li {
+  list-style-type: disc; }
+
+/* outline line style lists */
+ol.outline > li {
+  list-style-type: upper-roman; }
+
+ol.outline > li > ol > li {
+  list-style-type: upper-alpha; }
+
+ol.outline > li > ol > li > ol > li {
+  list-style-type: decimal; }
+
+ol.outline > li > ol > li > ol > li > ol > li {
+  list-style-type: lower-alpha; }
+
+ol.outline > li > ol > li > ol > li > ol > li > ol > li {
+  list-style-type: lower-roman; }
+
+ol.outline > li > ol > li > ol > li > ol > li > ol > li > ol > li {
+  list-style-type: lower-greek; }
+
+ol.question > li {
+  list-style-type: decimal; }
+
+ol.question > li > ol > li {
+  list-style-type: lower-alpha; }
+
+ul.spaced > li {
+  margin-top: 1em; }
+
+#officehours {
+  border: solid;
+  width: 75%; }
+
+#officehours * {
+  border-bottom: solid;
+  padding: 5px; }
+
+#officehours .last {
+  border-bottom: none; }
+
+.explanation {
+  font-size: small;
+  color: #000;
+  font-style: normal; }
+
+.major-section {
+  border-top-style: double;
+  padding-top: 1em;
+  margin-top: 2em; }
+
+.note, .important {
+  color: #16a6b4;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #16a6b4; }
+
+.lab-section {
+  background-color: #fff; }
+
+.ghost {
+  color: #dc8;
+  /*#F5EBAc;*/
+  color: #b3b3b3;
+  background-color: #fff; }
+
+.code-emphasize {
+  background-color: white;
+  font-size: medium;
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', 'Courier New',monospace; }
+
+.todo, #todo-list {
+  background-color: #fff;
+  color: #000;
+  visibility: hidden; }
+
+.todo-done {
+  visibility: hidden;
+  position: absolute; }
+
+.doc-image {
+  float: right;
+  clear: right; }
+
+.doc-image50 {
+  float: right;
+  clear: right;
+  width: 50%; }
+
+.doc-image40 {
+  float: right;
+  clear: right;
+  width: 40%;
+  margin-top: 1em; }
+
+.clearR {
+  clear: right; }
+
+.image75 {
+  width: 75%; }
+
+/*
+.image-arrow{
+  //font-size: 3em;
+  //transform: scaleX(3);
+  //-webkit-transform: scaleX(3);
+  //font-stretch: ultra-expanded;
+  //position: relative;
+  //top: .25em;
+  //color: $colorA;
+
+}
+*/
+.image-arrow::after {
+  content: "\1f82e";
+  font-size: 3em;
+  position: relative;
+  top: .25em;
+  color: #0E0524; }
+
+.frown {
+  font-size: x-large; }
+
+.frown::after {
+  content: "\2639"; }
+
+.notes h3, .notes h2 {
+  color: #4218aa;
+  font-size: x-large;
+  margin-top: 1em;
+  border-top-style: dotted; }
+
+.hint:before {
+  color: black;
+  content: "Hint->"; }
+
+.hint {
+  background-color: #fff;
+  color: #fff; }
+
+.hidden {
+  border-style: solid;
+  border-color: #0E0524;
+  border-width: 1px;
+  color: #bcd95c; }
+
+.footnotes {
+  clear: right;
+  border-top-style: double;
+  border-top-width: 10px;
+  border-top-color: #16a6b4;
+  margin-top: 1em; }
+
+.boxed {
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  border-color: #C2C2C2; }
+
+.side-boxed, .float-boxed {
+  border-style: solid none solid solid;
+  border-width: 3px;
+  padding: 5px  0px 5px 5px;
+  border-color: #C2C2C2; }
+
+.float-boxed {
+  float: right;
+  clear: right;
+  width: 40%;
+  margin-top: 1em; }
+
+.sampleLayout, .sample-color .colorA, .sample-color .colorB, .sample-color .colorC, .sample-color .colorD, .sample-color .colorE {
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-collapse: collapse;
+  border-color: black; }
+
+.sample-color .colorA {
+  background-color: #0E0524; }
+.sample-color .colorB {
+  background-color: #C2C2C2; }
+.sample-color .colorC {
+  background-color: #EFF6D8; }
+.sample-color .colorD {
+  background-color: #47DAE9; }
+.sample-color .colorE {
+  background-color: #4768E9; }
+
+.sample-label {
+  font-size: small;
+  text-align: center; }
+  .sample-label .colorA:after {
+    content: "#0E0524"; }
+  .sample-label .colorB:after {
+    content: "#C2C2C2"; }
+  .sample-label .colorC:after {
+    content: "#EFF6D8"; }
+  .sample-label .colorD:after {
+    content: "#47DAE9"; }
+  .sample-label .colorE:after {
+    content: "#4768E9"; }
+
+.background-message {
+  font-size: 8em;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  color: #16a6b4;
+  opacity: 0.3;
+  z-index: 13; }
+
+.flex-container {
+  display: flex; }
+
+.flex-no-grow {
+  flex-grow: 0; }
+
+.flex-full-grow {
+  flex-grow: 1; }
