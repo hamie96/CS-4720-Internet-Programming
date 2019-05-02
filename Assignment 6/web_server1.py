@@ -2,6 +2,10 @@ from bottle import run, request, response, SimpleTemplate, route, static_file
 import requests
 from json import loads
 
+# Hamilton Bradford
+# Internet Programming
+# Assignment 6
+
 PORT = 8000
 REST_PORT = 21212
 
@@ -20,22 +24,24 @@ def area_list():
 
 @route('/area_info')
 def area_info():
-    num = request.query.getall('area-select')
-    r = requests.get("http://localhost:21212/measures/area")
-    areas = loads(r.text)
-    
-    area_id = areas[0]
-    name = area_id[1]
-    id_num = area_id[0]
+    area_id = int(request.params['area-select'])
+    r = requests.get("http://localhost:21212/measures/area/{}".format(area_id))
+    area_id = r[0]
 
-    if id_num != 1:
-      return error(["You must construct additional pylons",
-                    "You must provide: {}".format(areas)])
-    else:
-        ## name = area_id[1]
-        template = SimpleTemplate(name="area_infos.html", lookup=["templates"])
-        page =  template.render(str(id_num),name)
-        return page
+    category_request = requests.get("http://localhost:21212/measures/area/categories/{}".format(area_id))
+    categories = loads(category_request.text)
+
+    avg_request = requests.get("http://localhost:21212/measures/area/average/{}".format(area_id))
+    average = loads(avg_request.text)
+
+    location_request = requests.get("http://localhost:21212/measures/area/locations/num/{}".format(area_id))
+    num_of_locations = loads(location_request.text)
+
+    return template("area_info.html", name = area_id[1], area_id=area_id[0], categories = categories, average = average, num_of_locations=num_of_locations, lookup=["templates"])
+    
+    #template = SimpleTemplate(name="area_infos.html", lookup=["templates"])
+    #page =  template.render(id_num,name)
+    #return page
 
 
 @route('/static/<filepath:path>')
